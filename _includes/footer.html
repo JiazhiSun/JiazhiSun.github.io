@@ -8,9 +8,18 @@
             </div>
             <div class="col-6">
                 <div class="text-right text-muted">
+                    {% if site.data.display.show_visitor_count %}
+                    <div id="busuanzi_container_site_uv" title="{% if jekyll.environment == 'production' %}Estimated unique visitors to this website{% else %}Visitor statistics are available on the published website{% endif %}">
+                        <i class="fas fa-users" aria-hidden="true"></i> Visitors: <span id="busuanzi_value_site_uv">N/A</span>
+                    </div>
+                    {% endif %}
                     {{ site.data.display.footer_text }}
                 </div>
             </div>
         </div>
     </div>
 </footer>
+{% if site.data.display.show_visitor_count and jekyll.environment == 'production' %}
+<!-- Count visits on the published website; development previews do not load analytics. -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{% endif %}

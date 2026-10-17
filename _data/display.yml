@@ -6,4 +6,5 @@ homepage:
 
 # Date of the latest website content revision; update this when editing the site.
 last_updated: "2026-10-18"
+show_visitor_count: true
 footer_text: ""
