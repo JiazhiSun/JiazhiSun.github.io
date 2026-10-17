@@ -1,4 +1,9 @@
 {% assign item = include.item %}
+{% assign primary_link = item.links.Paper | default: item.links.Conference %}
+{% assign title_url = primary_link.url | default: primary_link %}
+{% assign title_target = primary_link.target | default: '_blank' %}
+{% assign publication_type = 'Paper' %}
+{% if item.links.Conference or item.pub_pre contains 'Conference' %}{% assign publication_type = 'Conference' %}{% endif %}
 <div class="d-none d-md-block">
     <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
         <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
@@ -9,18 +14,23 @@
             {%- endif -%}
         </div>
         <div class="col-md-9 col-xl-10 p-3 pl-md-0">
-            <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
+            <h5 class="mt-0 mb-1 font-weight-normal">
+                {% if title_url %}<a class="text-body" href="{{ title_url | escape }}" target="{{ title_target | escape }}" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+            </h5>
             <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-            <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
+            <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }}{% unless publication_type == 'Paper' %} {{ item.pub_date }}{% endunless %} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
             <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
             
             <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+                <span class="text-primary">[{{ publication_type }}]</span>
                 {% for link in item.links %}
+                {% unless link[1] == primary_link %}
                 {% if link[1].url %}
                 <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
                 {% else %}
                 <a target="_blank" href="{{ link[1] }}">[{{ link[0] }}]</a>
                 {% endif %}
+                {% endunless %}
                 {% endfor %}
             </p>
 
@@ -33,18 +43,23 @@
         <div class="d-flex align-items-start flex-column py-3 px-4">
             <div class="mb-auto"></div>
             <div>
-                <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
+                <h5 class="mt-0 mb-1 font-weight-normal">
+                    {% if title_url %}<a class="text-body" href="{{ title_url | escape }}" target="{{ title_target | escape }}" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+                </h5>
                 <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
+                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }}{% unless publication_type == 'Paper' %} {{ item.pub_date }}{% endunless %} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
                 <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
                 
                 <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+                    <span class="text-primary">[{{ publication_type }}]</span>
                     {% for link in item.links %}
+                    {% unless link[1] == primary_link %}
                     {% if link[1].url %}
                     <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
                     {% else %}
                     <a target="_blank" href="{{ link[1] }}">[{{ link[0] }}]</a>
                     {% endif %}
+                    {% endunless %}
                     {% endfor %}
                 </p>
             </div>

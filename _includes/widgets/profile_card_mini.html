@@ -5,11 +5,12 @@
                 <div class="row">
                     <div class="col">
                         {% if site.data.profile.portrait_url %}
-                        <!-- When the screen is wider than md, float the portrait on the right -->
-                        <div class="figure d-none d-md-block">
+                        <!-- Keep the portrait centered above the profile text at every screen size. -->
+                        <div class="figure d-none d-md-block text-center">
                             <img 
                                 src="{{ site.data.profile.portrait_url | relative_url }}" 
-                                class="figure-img img-fluid" 
+                                class="figure-img img-fluid"
+                                alt="{{ site.data.profile.primary_name }}"
                                 data-toggle="tooltip" 
                                 data-placement="top" 
                                 title="{{ site.data.profile.portrait_caption }}">
@@ -55,6 +56,12 @@
                         </a>
                         {% endif %}
                         
+                        {% if site.data.profile.researchgate %}
+                        <a class="px-1 no-break" target="_blank" rel="noopener noreferrer" href="{{ site.data.profile.researchgate | escape }}" aria-label="ResearchGate" title="ResearchGate">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        {% endif %}
+
                         {% if site.data.profile.github %}
                         <a class="px-1 no-break" target="_blank" href="https://github.com/{{ site.data.profile.github }}">
                             <i class="fab fa-github"></i>
@@ -68,7 +75,7 @@
                         {% endif %}
 
                         {% if site.data.profile.linkedin %}
-                        <a class="px-1 no-break" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}">
+                        <a class="px-1 no-break" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" aria-label="LinkedIn" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         {% endif %}

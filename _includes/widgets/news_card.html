@@ -1,7 +1,7 @@
 {% assign news_by_year = site.news | sort: "date" | reverse | slice: 0, include.limit | group_by_exp: "item", "item.date | date: '%Y'" -%}
 
 <div class="my-3 bg-white shadow-sm rounded-xl">
-    <h6 class="p-3 mb-0 border-bottom border-gray"><i class="fas fa-rss"></i> News</h6>
+    <h6 class="p-3 mb-0 border-bottom border-gray"><i class="fas fa-rss"></i> Latest News <a href="{{ '/news' | relative_url }}">(view all <i class="fas fa-angle-double-right"></i>)</a></h6>
     <div class="px-3 pb-1 small">
         {% for year in news_by_year %}
         <div class="media py-1 {% if not_first -%}border-top border-gray{%- endif %}">
@@ -11,7 +11,9 @@
                 {% for item in year.items %}
                 <div class="my-1 d-flex">
                     <div>{{ item.title }}</div>
-                    <div class="ml-auto mt-auto text-muted no-break"><i>{{ item.date | date: "%b %d" }}</i></div>
+                    {% unless item.date_precision == "year" %}
+                    <div class="ml-auto mt-auto text-muted no-break"><i>{% if item.date_display %}{{ item.date_display }}{% elsif item.date_precision == "month" %}{{ item.date | date: "%b" }}{% else %}{{ item.date | date: "%b %d" }}{% endif %}</i></div>
+                    {% endunless %}
                 </div>
                 {% endfor %}
             </div>

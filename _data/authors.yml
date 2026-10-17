@@ -1,4 +1,5 @@
-"Your Name":
+"Sun, J.":
+  name: Jiazhi Sun
   bold: true
 
 "Robert White":
@@ -20,3 +21,65 @@
 
 "John Doe":
   url: https://www.google.com/?q=John+Doe
+
+# Source: https://api.crossref.org/works/10.5194%2Fegusphere-egu24-2205
+"Fan, B.":
+  name: "Bo Fan"
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2026.105532
+"Hu, Y.":
+  name: "Yao Hu"
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2025.105000
+"Jing, M.":
+  name: "Miao Jing"
+
+# Source: https://api.crossref.org/works/10.1029%2F2025WR043075
+"Liu, Y.":
+  name: "Yuxuan Liu"
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2026.105310
+"Lu, C.":
+  name: "Chunhui Lu"
+  # Hohai University, verified hhu.edu.cn email on Google Scholar.
+  url: https://scholar.google.com/citations?user=pxrF16sAAAAJ
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2026.105532
+"Shi, W.":
+  name: "Wenlong Shi"
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2026.105310
+"Werner, A. D.":
+  name: "Adrian D. Werner"
+
+# Source: https://api.crossref.org/works/10.5194%2Fegusphere-egu25-8126
+"Wu, H.":
+  name: "Huiqiang Wu"
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2026.105310
+"Xu, W.":
+  name: "Wenyu Xu"
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2026.105301
+"Yang, J.":
+  name: "Jie Yang"
+
+# Source: https://api.crossref.org/works/10.1016%2Fj.advwatres.2026.105310
+"Yang, X.":
+  name: "Xin Yang"
+
+# Source: https://api.crossref.org/works/10.1029%2F2025WR043075
+"Ye, Y.":
+  name: "Yu Ye"
+
+# Source: https://api.crossref.org/works/10.5194%2Fegusphere-egu25-8126
+"Yin, J.":
+  name: "Jina Yin"
+
+# Source: https://api.crossref.org/works/10.5194%2Fegusphere-egu25-7996
+"Zhang, J.":
+  name: "Jia Zhang"
+
+# Source: https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2026WR043972
+"Zong, H.":
+  name: "Hongrong Zong"

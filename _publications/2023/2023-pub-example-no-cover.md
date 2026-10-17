@@ -1,22 +1,19 @@
 ---
-title:          "Publication without cover image"
-date:           2023-01-1 00:01:00 +0800
-selected:       false
-pub:            "International Conference on Learning Representations (ICLR)"
-# pub_pre:        "Submitted to "
-# pub_post:       'Under review.'
-# pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
-pub_date:       "2023"
-
-abstract: >-
-  When the cover image is not provided, it will generate a random colorful bubble images as the cover image using the <code>bubble_visual_hash.js</code> script.
-# cover:          /assets/images/covers/cover3.jpg
+title: "A novel analytical solution for quantifying seawater intrusion in coastal aquifers embedded with a cutoff wall."
+# CV supplies a publication year; January 1 is used only for Jekyll sorting.
+date: "2026-01-01 00:00:00 +0800"
+selected: true
+pub: "Advances in Water Resources"
+pub_date: "2026"
+abstract: "Presents an analytical solution for quantifying seawater intrusion in coastal aquifers containing a cutoff wall."
+cover: /assets/images/travel/DSCF3992.jpg
+semantic_scholar_id: "DOI:10.1016/j.advwatres.2026.105301"
 authors:
-  - Your Name*#
-  - James Wang*
-  - Some Other Name
-  - John Doe
+- "Sun, J."
+- "Shi, W."
+- "Wu, H."
+- "Yang, J."
+- "Lu, C.#"
 links:
-  Code: https://github.com/luost26/bubble-visual-hash
-  Demo: https://luost26.github.io/bubble-visual-hash
+  Paper: https://doi.org/10.1016/j.advwatres.2026.105301
 ---

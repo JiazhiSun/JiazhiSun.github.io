@@ -1,22 +1,19 @@
 ---
-title:          "Convallis a cras semper auctor neque vitae rutrum quisque non tellus orci ac"
-date:           2024-05-12 00:01:00 +0800
-selected:       true
-pub:            "International Conference on Machine Learning (ICML)"
-# pub_pre:        "Submitted to "
-# pub_post:       'Under review.'
-pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
-pub_date:       "2024"
-semantic_scholar_id: 204e3073870fae3d05bcbc2f6a8e263d9b72e776  # use this to retrieve citation count
-abstract: >-
-  Photo by Pineapple Supply Co. on Unsplash. Please put a tldr (too-long-didnt-read, 1~2 sentences) of your publication here. It is not recommended to put the actual abstract here because it is usually too long to fit in. $\LaTeX$ is supported. $a=b+c$.
-cover:          /assets/images/covers/cover3.jpg
+title: "Maximum pumping in head-controlled reclaimed coastal aquifers: effects of horizontal heterogeneity and areal recharge."
+# CV supplies a publication year; January 1 is used only for Jekyll sorting.
+date: "2026-01-01 00:00:00 +0800"
+selected: false
+pub: "Advances in Water Resources"
+pub_date: "2026"
+abstract: "Examines how horizontal heterogeneity and areal recharge influence maximum pumping in head-controlled reclaimed coastal aquifers."
+cover: /assets/images/travel/DSCF3967.jpg
+semantic_scholar_id: "DOI:10.1016/j.advwatres.2026.105532"
 authors:
-  - Your Name
-  - James Wang
-  - Some Other Name
-  - John Doe
+- "Zhang, J."
+- "Shi, W."
+- "Sun, J."
+- "Hu, Y."
+- "Lu, C.#"
 links:
-  Code: https://github.com/luost26/academic-homepage
-  Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
+  Paper: https://doi.org/10.1016/j.advwatres.2026.105532
 ---

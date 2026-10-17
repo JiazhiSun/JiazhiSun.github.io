@@ -4,7 +4,8 @@
     const cacheLifetime = 60 * 60 * 1000;
 
     document.querySelectorAll('[data-semantic-scholar-id]').forEach(element => {
-        const id = (element.getAttribute('data-semantic-scholar-id') || '').trim().toLowerCase();
+        const rawId = (element.getAttribute('data-semantic-scholar-id') || '').trim();
+        const id = /^doi:/i.test(rawId) ? `DOI:${rawId.slice(4).toLowerCase()}` : rawId.toLowerCase();
         if (!id) return;
         element.setAttribute('data-semantic-scholar-id', id);
         if (!elementsById.has(id)) elementsById.set(id, []);
@@ -55,12 +56,35 @@
         });
     }
 
+    function renderCitationPlaceholder(id) {
+        const url = id.startsWith('DOI:')
+            ? `https://www.semanticscholar.org/search?q=${encodeURIComponent(id.slice(4))}&sort=relevance`
+            : `https://www.semanticscholar.org/paper/${encodeURIComponent(id)}`;
+        elementsById.get(id).forEach(element => {
+            const link = document.createElement('a');
+            link.className = 'badge badge-pill badge-publication badge-info';
+            link.href = url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.title = 'View citation information on Semantic Scholar';
+            const icon = document.createElement('i');
+            icon.className = 'ai ai-semantic-scholar';
+            icon.setAttribute('aria-hidden', 'true');
+            link.appendChild(icon);
+            link.appendChild(document.createTextNode(' Citations'));
+            element.textContent = '';
+            element.appendChild(link);
+        });
+    }
+
     const uncachedIds = [];
     elementsById.forEach((_, id) => {
         const cachedData = readCache(id);
         if (cachedData) {
             citationCounts.set(id, cachedData);
             renderCitationCount(id);
+        } else {
+            renderCitationPlaceholder(id);
         }
         if (!cachedData || Date.now() - cachedData.timestamp > cacheLifetime || cachedData.timestamp > Date.now()) {
             uncachedIds.push(id);

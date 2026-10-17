@@ -2,18 +2,38 @@
 {% assign hide_bottom_border = include.hide_bottom_border %}
 {% assign first = include.first %}
 {% assign last = include.last %}
+{% if include.news %}
+    {% assign item_title = item.headline | default: item.title | strip_html %}
+    {% assign item_url = item.external_url %}
+{% else %}
+    {% assign item_title = item.title %}
+    {% assign item_url = item.url | relative_url %}
+{% endif %}
 
 <div class="border-bottom border-gray p-3 {% if hide_bottom_border %}border-0{% endif %}">
     <div class="row">
         <div class="col-12">
             <h5 class="mb-2">
-                <a href="{{ item.url | relative_url }}" class="text-dark text-decoration-none">
-                    {{ item.title }}
+                {% if item_url %}
+                <a href="{{ item_url }}" class="text-dark text-decoration-none"{% if include.news %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                    {{ item_title }}
                 </a>
+                {% else %}
+                    {{ item_title }}
+                {% endif %}
             </h5>
             <div class="text-muted small mb-2">
-                <i class="fas fa-calendar-alt"></i> {{ item.date | date: "%B %d, %Y" }}
-                {% if item.tags %}
+                <i class="fas fa-calendar-alt"></i>
+                {% if include.news and item.date_precision == "year" %}
+                    {{ item.date | date: "%Y" }}
+                {% elsif include.news and item.date_precision == "month" %}
+                    {{ item.date | date: "%B %Y" }}
+                {% elsif include.news and item.date_display %}
+                    {{ item.date_display }}, {{ item.date | date: "%Y" }}
+                {% else %}
+                    {{ item.date | date: "%B %d, %Y" }}
+                {% endif %}
+                {% if item.tags.size > 0 %}
                     <span class="ml-3">
                         <i class="fas fa-tags"></i>
                         {% for tag in item.tags %}
@@ -23,17 +43,21 @@
                 {% endif %}
             </div>
             <div class="text-muted small">
-                {% if item.excerpt %}
+                {% if include.news %}
+                    {{ item.title }}
+                {% elsif item.excerpt %}
                     {{ item.excerpt | strip_html | truncate: 500 }}
                 {% else %}
                     {{ item.content | strip_html | truncate: 500 }}
                 {% endif %} 
             </div>
+            {% unless include.news %}
             <div class="mt-2">
                 <a href="{{ item.url | relative_url }}">
                     Read more <i class="fas fa-angle-double-right"></i>
                 </a>
             </div>
+            {% endunless %}
         </div>
     </div>
 </div>
