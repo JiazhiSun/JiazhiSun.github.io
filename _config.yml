@@ -32,7 +32,8 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# timezone: Asia/Shanghai
+# Keep date labels and year grouping consistent across local and GitHub builds.
+timezone: Asia/Shanghai
 
 collections:
   - publications
