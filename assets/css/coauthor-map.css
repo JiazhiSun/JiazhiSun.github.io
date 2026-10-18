@@ -1,0 +1,43 @@
+.coauthor-map-card {
+    overflow: hidden;
+}
+
+.coauthor-map {
+    height: 420px;
+    width: 100%;
+    background: #e5edf0;
+    /* Keep Leaflet layers below the site's fixed navbar. */
+    z-index: 0;
+    font-family: inherit;
+}
+
+.coauthor-map-status {
+    margin: 0;
+    padding: 0.75rem 1rem;
+}
+
+.coauthor-map-status[hidden] {
+    display: none;
+}
+
+.coauthor-location-marker {
+    background: transparent;
+    border: 0;
+}
+
+.coauthor-location-dot {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+    background: #246785;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px rgba(16, 48, 64, 0.4);
+}
+
+@media (max-width: 575.98px) {
+    .coauthor-map {
+        height: 320px;
+    }
+}

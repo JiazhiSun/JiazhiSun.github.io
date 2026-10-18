@@ -1,0 +1,51 @@
+# Approximate city centres, not personal addresses or campus coordinates.
+# These sources establish affiliations, not anyone's live location.
+# Names and evidence are for maintenance only and are not rendered on the page.
+# Add a city only after verifying a coauthor's affiliation there.
+- city: Nanjing
+  country: China
+  latitude: 32.06
+  longitude: 118.80
+  affiliations:
+    - institution: Hohai University
+      authors: ["Lu, C.", "Wu, H.", "Yin, J."]
+      basis: Publication affiliation, 2025
+      source: https://meetingorganizer.copernicus.org/EGU25/EGU25-8126.html
+    - institution: Hohai University
+      authors: ["Zhang, J."]
+      basis: Publication affiliation, 2025
+      source: https://meetingorganizer.copernicus.org/EGU25/EGU25-7996.html
+    - institution: Hohai University
+      authors: ["Liu, Y.", "Ye, Y."]
+      basis: Publication affiliation, 2026
+      source: https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025WR043075
+
+- city: Beijing
+  country: China
+  latitude: 39.90
+  longitude: 116.41
+  affiliations:
+    - institution: Science and Technology Promotion Centre, Ministry of Water Resources
+      authors: ["Fan, B."]
+      basis: Publication affiliation, 2024
+      source: https://meetingorganizer.copernicus.org/EGU24/EGU24-2205.html
+
+- city: Adelaide
+  country: Australia
+  latitude: -34.93
+  longitude: 138.60
+  affiliations:
+    - institution: Flinders University
+      authors: ["Werner, A. D."]
+      basis: Publication affiliation, 2026
+      source: https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025WR043075
+
+- city: Newark
+  country: United States
+  latitude: 39.68
+  longitude: -75.75
+  affiliations:
+    - institution: University of Delaware
+      authors: ["Hu, Y."]
+      basis: University staff page, checked 2026-10-18
+      source: https://www.udel.edu/academics/colleges/ceoe/departments/gss/faculty/yao-hu/
